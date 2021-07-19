@@ -29,23 +29,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{35889592-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{F7F7BA14-ACC7-4A99-B3F3-B67CB593DC12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.api.jogo", "src\jogo\api\br21.api.jogo\br21.api.jogo.csproj", "{A6538609-114C-4F02-93AB-72465CEB9F85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.api.jogo", "src\jogo\api\br21.api.jogo\br21.api.jogo.csproj", "{A6538609-114C-4F02-93AB-72465CEB9F85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.api.temporada", "src\temporada\api\br21.api.temporada\br21.api.temporada.csproj", "{4E2EFA79-F975-4DA3-B945-42BA7687A0D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.api.temporada", "src\temporada\api\br21.api.temporada\br21.api.temporada.csproj", "{4E2EFA79-F975-4DA3-B945-42BA7687A0D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.api.time", "src\time\api\br21.api.time\br21.api.time.csproj", "{3C8DEB83-FAC3-4C8D-A1DF-F0AB26202577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.api.time", "src\time\api\br21.api.time\br21.api.time.csproj", "{3C8DEB83-FAC3-4C8D-A1DF-F0AB26202577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.negocio.jogo", "src\jogo\core\br21.core.negocio.jogo\br21.core.negocio.jogo.csproj", "{D7304212-5595-4330-A6A1-7F6B97564BCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.negocio.jogo", "src\jogo\core\br21.core.negocio.jogo\br21.core.negocio.jogo.csproj", "{D7304212-5595-4330-A6A1-7F6B97564BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.negocio.temporada", "src\temporada\core\br21.core.negocio.temporada\br21.core.negocio.temporada.csproj", "{7F81837C-4B34-4859-9580-3B379C92BFED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.negocio.temporada", "src\temporada\core\br21.core.negocio.temporada\br21.core.negocio.temporada.csproj", "{7F81837C-4B34-4859-9580-3B379C92BFED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.negocio.time", "src\time\core\br21.core.negocio.time\br21.core.negocio.time.csproj", "{9C84512A-58B8-4506-AE6D-27C593CE4B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.negocio.time", "src\time\core\br21.core.negocio.time\br21.core.negocio.time.csproj", "{9C84512A-58B8-4506-AE6D-27C593CE4B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.infra.data.jogo", "src\jogo\infra\br21.infra.data.jogo\br21.infra.data.jogo.csproj", "{67A4C35E-12D0-46ED-B128-9BDC68A66BFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.infra.data.jogo", "src\jogo\infra\br21.infra.data.jogo\br21.infra.data.jogo.csproj", "{67A4C35E-12D0-46ED-B128-9BDC68A66BFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.infra.data.temporada", "src\temporada\infra\br21.infra.data.temporada\br21.infra.data.temporada.csproj", "{37358FDE-5437-458E-9A17-CDE77C31A7CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.infra.data.temporada", "src\temporada\infra\br21.infra.data.temporada\br21.infra.data.temporada.csproj", "{37358FDE-5437-458E-9A17-CDE77C31A7CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.infra.data.time", "src\time\infra\br21.infra.data.time\br21.infra.data.time.csproj", "{CA95FE52-DD57-4FEB-9ABA-A6C617004D36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.infra.data.time", "src\time\infra\br21.infra.data.time\br21.infra.data.time.csproj", "{CA95FE52-DD57-4FEB-9ABA-A6C617004D36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.entidade.jogo", "src\jogo\core\br21.core.entidade.jogo\br21.core.entidade.jogo.csproj", "{73137C0C-DE65-4675-806E-1DF47211A93E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.entidade.temporada", "src\temporada\core\br21.core.entidade.temporada\br21.core.entidade.temporada.csproj", "{1D43CDB1-356C-469B-8387-AE65A4B80E65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.entidade.time", "src\time\core\br21.core.entidade.time\br21.core.entidade.time.csproj", "{19184293-E9D0-4596-A3A8-5FCD3F5551D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +95,18 @@ Global
 		{CA95FE52-DD57-4FEB-9ABA-A6C617004D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA95FE52-DD57-4FEB-9ABA-A6C617004D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA95FE52-DD57-4FEB-9ABA-A6C617004D36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73137C0C-DE65-4675-806E-1DF47211A93E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73137C0C-DE65-4675-806E-1DF47211A93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73137C0C-DE65-4675-806E-1DF47211A93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73137C0C-DE65-4675-806E-1DF47211A93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D43CDB1-356C-469B-8387-AE65A4B80E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D43CDB1-356C-469B-8387-AE65A4B80E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D43CDB1-356C-469B-8387-AE65A4B80E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D43CDB1-356C-469B-8387-AE65A4B80E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19184293-E9D0-4596-A3A8-5FCD3F5551D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19184293-E9D0-4596-A3A8-5FCD3F5551D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19184293-E9D0-4596-A3A8-5FCD3F5551D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19184293-E9D0-4596-A3A8-5FCD3F5551D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +133,9 @@ Global
 		{67A4C35E-12D0-46ED-B128-9BDC68A66BFB} = {D622F106-9DC3-46F6-A392-7D414D0189D8}
 		{37358FDE-5437-458E-9A17-CDE77C31A7CE} = {5EB5530C-13DC-4DC8-BDA9-B67E8DA68E33}
 		{CA95FE52-DD57-4FEB-9ABA-A6C617004D36} = {F7F7BA14-ACC7-4A99-B3F3-B67CB593DC12}
+		{73137C0C-DE65-4675-806E-1DF47211A93E} = {CCA458FE-7566-4FEE-8339-B7C13130D9D5}
+		{1D43CDB1-356C-469B-8387-AE65A4B80E65} = {AF90B3C1-557D-4FDA-BBA1-67DBFEA0E683}
+		{19184293-E9D0-4596-A3A8-5FCD3F5551D8} = {35889592-0690-40A5-AAB4-088ED71758E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2BF71564-5553-409B-8CF0-5D13BCF585F8}
