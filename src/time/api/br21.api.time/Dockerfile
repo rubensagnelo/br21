@@ -4,11 +4,14 @@
 #For more information, please see https://aka.ms/containercompat
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-nanoserver-1903 AS base
+#FROM mcr.microsoft.com/dotnet/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-1903 AS build
+#FROM mcr.microsoft.com/dotnet/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/time/api/br21.api.time/br21.api.time.csproj", "src/time/api/br21.api.time/"]
 RUN dotnet restore "src/time/api/br21.api.time/br21.api.time.csproj"
