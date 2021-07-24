@@ -16,7 +16,7 @@ namespace br21.core.modelo.temporada
 
         public mdlEntradaTemporada(entTemporada temporada)
         {
-            idtemporada = 0;
+            idtemporada = temporada.idtemporada;
         }
 
         public entTemporada Entidade() {
