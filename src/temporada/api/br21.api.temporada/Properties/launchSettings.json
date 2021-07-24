@@ -20,7 +20,7 @@
     "br21.api.temporada": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "br21api/temporada",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
