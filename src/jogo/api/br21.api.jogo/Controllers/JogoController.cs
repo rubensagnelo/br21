@@ -37,12 +37,19 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, lst);
         }
 
-
-        [HttpGet("{Temporada}/{id}")]
-        public virtual IActionResult Get(int Temporada, int idJogo)
+        [HttpGet("{Temporada}/{rodada}")]
+        public virtual IActionResult Get(int Temporada, int rodada)
         {
             int errcode = 0;
-            mdlRetornoJogos times = new mdlRetornoJogos(jogoServico.Get(out errcode, _urlTime, Temporada, idJogo));
+            mdlRetornoJogos times = new mdlRetornoJogos(jogoServico.Get(out errcode, _urlTime, Temporada, rodada));
+            return StatusCode(errcode, times);
+        }
+
+        [HttpGet("{Temporada}/{rodada}/{idjogo}")]
+        public virtual IActionResult Get(int Temporada, int rodada, int idjogo)
+        {
+            int errcode = 0;
+            mdlRetornoJogos times = new mdlRetornoJogos(jogoServico.Get(out errcode, _urlTime, Temporada, rodada, idjogo));
             return StatusCode(errcode, times);
         }
 

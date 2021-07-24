@@ -5,11 +5,11 @@ namespace br21.core.entidade.jogo
 {
     public class entJogo
     {
-
+        public Object _id { get; set; }
         public long idjogo { get; set; } //identificador do jogo
         public int idttemporada { get; set; }//identificador da temporada(exemplo: 2021)
         public int rodada { get; set; } //Numero da rodada
-        public DateTime dtajogo { get; set; }  //Data e hora inicio jogo
+        public string dtajogo { get; set; }  //Data e hora inicio jogo
 
 
         public string idttimemandante { get; set; } //Identificador do time visitante
@@ -29,11 +29,11 @@ namespace br21.core.entidade.jogo
 
     public class entJogoRetorno
     {
-
+        public Object _id { get; set; }
         public long idjogo { get; set; } //identificador do jogo
         public int idttemporada { get; set; }//identificador da temporada(exemplo: 2021)
         public int rodada { get; set; } //Numero da rodada
-        public DateTime dtajogo { get; set; }  //Data e hora inicio jogo
+        public string dtajogo { get; set; }  //Data e hora inicio jogo
 
 
         public string idttimemandante { get; set; } //Identificador do time visitante

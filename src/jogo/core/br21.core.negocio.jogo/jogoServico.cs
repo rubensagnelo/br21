@@ -14,15 +14,29 @@ namespace br21.core.negocio.jogo
 
         private static dbmongo.MongoDatabase<entJogo> cr = new dbmongo.MongoDatabase<entJogo>(typeof(entJogo).FullName);
 
-        public static entJogosRetorno Get(out int errcode, string urlServiceTime, int temporada=0, long idJogo = 0)
+        public static entJogosRetorno Get(out int errcode, string urlServiceTime, int temporada=0, int rodada=0, long idJogo = 0)
         {
 
             entJogosRetorno result = new entJogosRetorno();
             errcode = 500;
             try
             {
-                Expression<Func<entJogo, bool>>  Filtro = a =>  (a.idttemporada.Equals(temporada) || temporada <= 0) && 
-                                                                (a.idjogo.Equals(idJogo) || idJogo <= 0 );
+                Expression<Func<entJogo, bool>> Filtro = a => true;
+
+                if (temporada > 0)
+                {
+                    Filtro = a => a.idttemporada.Equals(temporada);
+
+                    if (rodada > 0)
+                    {
+                        Filtro = a => (a.idttemporada.Equals(temporada) && a.rodada.Equals(rodada));
+                    }
+                }
+
+                if (idJogo > 0)
+                    Filtro = a => a.idjogo.Equals(idJogo);
+
+
                 List<entJogo> Lcrt = cr.GetList(Filtro);
 
                 Ext_entTimes times = null;
@@ -34,16 +48,16 @@ namespace br21.core.negocio.jogo
                 
                 string timemandante = null;
                 string timevisitante = null;
-                object resultprxTime = null;
+                Ext_entTime resultprxTime = null;
 
                 errcode = 400;// <response code="400">valor do parametro inválido</response>
                 foreach (var item in Lcrt)
                 {
-                    resultprxTime = times.Where(p => p.idttime == item.idttimemandante);
-                    if (resultprxTime != null) timemandante = ((Ext_entTime)resultprxTime).dsctime;
+                    resultprxTime = times.Where(p => p.idttime.Equals(item.idttimemandante)).First();
+                    if (resultprxTime != null) timemandante =resultprxTime.dsctime;
                     
-                    resultprxTime = (Ext_entTime)times.Where(p => p.idttime == item.idttimevisitante);
-                    if (resultprxTime != null) timevisitante = ((Ext_entTime)resultprxTime).dsctime;
+                    resultprxTime = (Ext_entTime)times.Where(p => p.idttime.Equals(item.idttimevisitante)).First();
+                    if (resultprxTime != null) timevisitante = resultprxTime.dsctime;
 
                     result.Add(
                             new entJogoRetorno()

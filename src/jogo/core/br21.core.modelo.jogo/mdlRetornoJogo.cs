@@ -11,7 +11,7 @@ namespace br21.core.modelo.jogo
         public long idjogo { get; set; } //identificador do jogo
         public int idttemporada { get; set; }//identificador da temporada(exemplo: 2021)
         public int rodada { get; set; } //Numero da rodada
-        public DateTime dtajogo { get; set; }  //Data e hora inicio jogo
+        public string dtajogo { get; set; }  //Data e hora inicio jogo
 
 
         public string idttimemandante { get; set; } //Identificador do time visitante
@@ -28,7 +28,7 @@ namespace br21.core.modelo.jogo
             idjogo = 0;
             idttemporada = 0;
             rodada = 0;
-            dtajogo = DateTime.MinValue;
+            dtajogo = DateTime.MinValue.ToString("yyyy-MM-dd hh:mm");
             idttimemandante = string.Empty;
             dsctimemandante = "";
             vlrplacarmandante = 0;
@@ -46,9 +46,11 @@ namespace br21.core.modelo.jogo
             dtajogo = jogo.dtajogo;
 
             idttimemandante = jogo.idttimemandante;
+            dsctimemandante = jogo.dsctimemandante;
             vlrplacarmandante = jogo.vlrplacarmandante;
 
             idttimevisitante = jogo.idttimevisitante;
+            dsctimevisitante = jogo.dsctimevisitante;
             vlrplacarvisitante = jogo.vlrplacarvisitante;
         }
 
