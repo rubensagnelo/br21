@@ -12,7 +12,7 @@ namespace br21.core.entidade.time
 
         public entTime()
         {
-            _id = Guid.NewGuid();
+            _id = Guid.NewGuid().ToString();
 
         }
 

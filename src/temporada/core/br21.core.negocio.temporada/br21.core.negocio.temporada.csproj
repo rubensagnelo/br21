@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\infra\br21.infra.data.temporada\br21.infra.data.temporada.csproj" />
+    <ProjectReference Include="..\br21.core.entidade.temporada\br21.core.entidade.temporada.csproj" />
   </ItemGroup>
 
 </Project>

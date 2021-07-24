@@ -8,7 +8,7 @@ using br21.core.entidade.time;
 namespace br21.core.negocio.time
 {
 
-    public class jogoService
+    public class timeServico
     {
 
         private static dbmongo.MongoDatabase<entTime> cr = new dbmongo.MongoDatabase<entTime>(typeof(entTime).FullName);

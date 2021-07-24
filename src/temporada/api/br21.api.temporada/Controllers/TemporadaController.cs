@@ -2,46 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using br21.core.modelo.temporada;
+using br21.core.negocio.temporada;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace br21.api.temporada.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("br21api/[controller]")]
     [ApiController]
+    [EnableCors("AllowSpecificOrigin")]
     public class TemporadaController : ControllerBase
     {
-        // GET: api/<TemporadaController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public virtual IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            int errcode = 0;
+            mdlEntradaTemporadas lst = new mdlEntradaTemporadas(temporadaServico.Get(out errcode));
+            return StatusCode(errcode, lst);
         }
 
-        // GET api/<TemporadaController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public virtual IActionResult Get(int id)
         {
-            return "value";
+            int errcode = 0;
+            mdlEntradaTemporadas lst = new mdlEntradaTemporadas(temporadaServico.Get(out errcode, id));
+            return StatusCode(errcode, lst);
         }
 
-        // POST api/<TemporadaController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public virtual IActionResult Post([FromBody] mdlEntradaTemporada value)
         {
+            int errcode = temporadaServico.Add(value.Entidade());
+            return StatusCode(errcode, value);
         }
 
-        // PUT api/<TemporadaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public virtual IActionResult Put(int id, [FromBody] mdlEntradaTemporada value)
         {
+            int errcode = temporadaServico.Update(id, value.Entidade());
+            return StatusCode(errcode, value);
         }
 
-        // DELETE api/<TemporadaController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public virtual IActionResult Delete(int id)
         {
+            int errcode = 0;
+            temporadaServico.Del(out errcode, id);
+            return StatusCode(errcode, id);
         }
     }
 }

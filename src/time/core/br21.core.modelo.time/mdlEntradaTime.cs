@@ -3,6 +3,7 @@ using br21.modelobase;
 using br21.core.entidade.time;
 using System.Collections.Generic;
 
+
 namespace br21.core.modelo.time
 {
     public class mdlEntradaTime : mdlEntradabase
@@ -21,7 +22,7 @@ namespace br21.core.modelo.time
             //imgescudo = new List<byte>().ToArray();
         }
 
-    public mdlEntradaTime(br21.core.entidade.time.entTime time)
+    public mdlEntradaTime(entTime time)
         {
             idttime = time.idttime;
             dsctime = time.dsctime;

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\core\br21.core.modelo.temporada\br21.core.modelo.temporada.csproj" />
     <ProjectReference Include="..\..\core\br21.core.negocio.temporada\br21.core.negocio.temporada.csproj" />
   </ItemGroup>
 
