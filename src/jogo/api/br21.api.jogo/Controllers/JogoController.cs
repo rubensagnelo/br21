@@ -2,46 +2,80 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using br21.core.modelo.jogo;
+using br21.core.negocio.jogo;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.Extensions.Configuration;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace br21.api.jogo.Controllers
+namespace br21.api.time.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("br21api/[controller]")]
     [ApiController]
+    [EnableCors("AllowSpecificOrigin")]
     public class JogoController : ControllerBase
     {
-        // GET: api/<JogoController>
+
+
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public virtual IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            int errcode = 0;
+            mdlRetornoJogos lst = new mdlRetornoJogos(jogoServico.Get(out errcode,_urlTime));
+            return StatusCode(errcode, lst);
         }
 
-        // GET api/<JogoController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+
+        [HttpGet("{Temporada}")]
+        public virtual IActionResult Get(int Temporada)
         {
-            return "value";
+            int errcode = 0;
+            mdlRetornoJogos lst = new mdlRetornoJogos(jogoServico.Get(out errcode, _urlTime, Temporada));
+            return StatusCode(errcode, lst);
         }
 
-        // POST api/<JogoController>
+
+        [HttpGet("{Temporada}/{id}")]
+        public virtual IActionResult Get(int Temporada, int idJogo)
+        {
+            int errcode = 0;
+            mdlRetornoJogos times = new mdlRetornoJogos(jogoServico.Get(out errcode, _urlTime, Temporada, idJogo));
+            return StatusCode(errcode, times);
+        }
+
         [HttpPost]
-        public void Post([FromBody] string value)
+        public virtual IActionResult Post([FromBody] mdlEntradaJogo value)
         {
+            int errcode = jogoServico.Add(value.Entidade());
+            return StatusCode(errcode, value);
         }
 
-        // PUT api/<JogoController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public virtual IActionResult Put(int id, [FromBody] mdlEntradaJogo value)
         {
+            int errcode = jogoServico.Update(id, value.Entidade());
+            return StatusCode(errcode, value);
         }
 
-        // DELETE api/<JogoController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public virtual IActionResult Delete(int id)
         {
+            int errcode = 0;
+            jogoServico.Del(out errcode, id);
+            return StatusCode(errcode, id);
         }
+
+        private IConfiguration _configuration;
+        private String _urlTime = "";
+        public JogoController(IConfiguration config)
+        {
+            _configuration = config;
+            _urlTime = _configuration.GetSection("Aplicacao").GetSection("Parametros").GetValue<String>("urlserviceTime").ToString();
+        }
+
+
     }
 }

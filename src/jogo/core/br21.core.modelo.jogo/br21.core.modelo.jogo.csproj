@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\_base\br21.base.modelo\br21.base.modelo.csproj" />
+    <ProjectReference Include="..\br21.core.entidade.jogo\br21.core.entidade.jogo.csproj" />
+  </ItemGroup>
+
 </Project>

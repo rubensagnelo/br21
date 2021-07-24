@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Net;
 
 
-namespace dados.baseproxy
+namespace proxy
 {
     public class WebAPIProxy
     {

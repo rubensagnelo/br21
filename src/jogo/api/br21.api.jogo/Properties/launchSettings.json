@@ -20,7 +20,7 @@
     "br21.api.jogo": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "br21api/jogo",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

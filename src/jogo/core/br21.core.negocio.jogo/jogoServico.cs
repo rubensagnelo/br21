@@ -3,44 +3,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using br21.core.entidade.jogo;
+using proxy;
 
 
-namespace SProfTIAPI.Services
+namespace br21.core.negocio.jogo
 {
 
-    public class jogoService
+    public class jogoServico
     {
 
         private static dbmongo.MongoDatabase<entJogo> cr = new dbmongo.MongoDatabase<entJogo>(typeof(entJogo).FullName);
 
-        public static List<entJogo> Get(out int errcode, int temporada, string NomeTime = "")
+        public static entJogosRetorno Get(out int errcode, string urlServiceTime, int temporada=0, long idJogo = 0)
         {
 
-            List<entJogo> result = new List<entJogo>();
+            entJogosRetorno result = new entJogosRetorno();
             errcode = 500;
             try
             {
-
-                Expression<Func<entJogo, bool>> Filtro = a => a.idttemporada.Equals(temporada) && 
-                                                             (a.dsctimemandante.Contains(NomeTime) || a.dsctimevisitante.Contains(NomeTime));
+                Expression<Func<entJogo, bool>>  Filtro = a =>  (a.idttemporada.Equals(temporada) || temporada <= 0) && 
+                                                                (a.idjogo.Equals(idJogo) || idJogo <= 0 );
                 List<entJogo> Lcrt = cr.GetList(Filtro);
 
+                Ext_entTimes times = null;
+                try
+                {
+                    times = WebAPIProxy.Get<Ext_entTimes>(urlServiceTime);
+                }
+                catch (Exception ex) { }
+                
+                string timemandante = null;
+                string timevisitante = null;
+                object resultprxTime = null;
 
                 errcode = 400;// <response code="400">valor do parametro inválido</response>
                 foreach (var item in Lcrt)
                 {
+                    resultprxTime = times.Where(p => p.idttime == item.idttimemandante);
+                    if (resultprxTime != null) timemandante = ((Ext_entTime)resultprxTime).dsctime;
+                    
+                    resultprxTime = (Ext_entTime)times.Where(p => p.idttime == item.idttimevisitante);
+                    if (resultprxTime != null) timevisitante = ((Ext_entTime)resultprxTime).dsctime;
+
                     result.Add(
-                            new entJogo()
+                            new entJogoRetorno()
                             {
                                 idjogo = item.idjogo,
                                 idttemporada = item.idttemporada,
                                 rodada = item.rodada,
                                 dtajogo = item.dtajogo,
                                 idttimemandante = item.idttimemandante,
-                                dsctimemandante = item.dsctimemandante,
+                                dsctimemandante = timemandante,//Retorno do serviço esxterno (Time)
                                 vlrplacarmandante = item.vlrplacarmandante,
-                                idttimevitante = item.idttimevitante,
-                                dsctimevisitante = item.dsctimevisitante,
+                                idttimevisitante = item.idttimevisitante,
+                                dsctimevisitante = timevisitante,
                                 vlrplacarvisitante = item.vlrplacarvisitante
                             });
                 }
@@ -53,10 +69,11 @@ namespace SProfTIAPI.Services
 
             }
 
-
             return result;
 
         }
+
+
 
         public static entJogo GetById(out int errcode, int? idtJogo)
         {
@@ -79,10 +96,10 @@ namespace SProfTIAPI.Services
                         rodada = item.rodada,
                         dtajogo = item.dtajogo,
                         idttimemandante = item.idttimemandante,
-                        dsctimemandante = item.dsctimemandante,
+                        //dsctimemandante = item.dsctimemandante,
                         vlrplacarmandante = item.vlrplacarmandante,
-                        idttimevitante = item.idttimevitante,
-                        dsctimevisitante = item.dsctimevisitante,
+                        idttimevisitante = item.idttimevisitante,
+                        //dsctimevisitante = item.dsctimevisitante,
                         vlrplacarvisitante = item.vlrplacarvisitante
                     };
                 }
@@ -118,17 +135,17 @@ namespace SProfTIAPI.Services
                     rodada = item.rodada,
                     dtajogo = item.dtajogo,
                     idttimemandante = item.idttimemandante,
-                    dsctimemandante = item.dsctimemandante,
+                    //dsctimemandante = item.dsctimemandante,
                     vlrplacarmandante = item.vlrplacarmandante,
-                    idttimevitante = item.idttimevitante,
-                    dsctimevisitante = item.dsctimevisitante,
+                    idttimevisitante = item.idttimevisitante,
+                    //dsctimevisitante = item.dsctimevisitante,
                     vlrplacarvisitante = item.vlrplacarvisitante
                 };
 
 
                 Expression<Func<entJogo, bool>> Filtro = a => a.idjogo == obj.idjogo ||
                                                             (a.idttimemandante == obj.idttimemandante && 
-                                                            a.idttimevitante == obj.idttimevitante);
+                                                            a.idttimevisitante == obj.idttimevisitante);
                 entJogo crt = cr.GetOne(Filtro);
 
 
@@ -202,10 +219,10 @@ namespace SProfTIAPI.Services
                     rodada = item.rodada,
                     dtajogo = item.dtajogo,
                     idttimemandante = item.idttimemandante,
-                    dsctimemandante = item.dsctimemandante,
+                    //dsctimemandante = item.dsctimemandante,
                     vlrplacarmandante = item.vlrplacarmandante,
-                    idttimevitante = item.idttimevitante,
-                    dsctimevisitante = item.dsctimevisitante,
+                    idttimevisitante = item.idttimevisitante,
+                    //dsctimevisitante = item.dsctimevisitante,
                     vlrplacarvisitante = item.vlrplacarvisitante
                 };
 
@@ -230,10 +247,10 @@ namespace SProfTIAPI.Services
                 updates.Add(update.Set("rodada", obj.rodada));
                 updates.Add(update.Set("dtajogo", obj.dtajogo));
                 updates.Add(update.Set("idttimemandante", obj.idttimemandante));
-                updates.Add(update.Set("dsctimemandante", obj.dsctimemandante));
+                //updates.Add(update.Set("dsctimemandante", obj.dsctimemandante));
                 updates.Add(update.Set("vlrplacarmandante", obj.vlrplacarmandante));
-                updates.Add(update.Set("idttimevitante", obj.idttimevitante));
-                updates.Add(update.Set("dsctimevisitante", obj.dsctimevisitante));
+                updates.Add(update.Set("idttimevitante", obj.idttimevisitante));
+                //updates.Add(update.Set("dsctimevisitante", obj.dsctimevisitante));
                 updates.Add(update.Set("vlrplacarvisitante", obj.vlrplacarvisitante));
 
 

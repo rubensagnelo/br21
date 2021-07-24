@@ -26,6 +26,7 @@ namespace br21.api.jogo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,8 @@ namespace br21.api.jogo
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(option => option.AllowAnyOrigin()); ;
 
             app.UseEndpoints(endpoints =>
             {
