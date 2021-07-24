@@ -7,17 +7,26 @@ namespace br21.core.modelo.time
 {
     public class mdlEntradaTime : mdlEntradabase
     {
-        public int idttime { get; set; }
+        
+        public string idttime { get; set; }
         public string sgltime { get; set; }
         public string dsctime { get; set; }
-        public byte[] imgescudo { get; set; }
+        //public byte[] imgescudo { get; set; }
 
-        public mdlEntradaTime(br21.core.entidade.time.entTime time)
+
+        public mdlEntradaTime() {
+            idttime = "";
+            sgltime = "";
+            dsctime = "";
+            //imgescudo = new List<byte>().ToArray();
+        }
+
+    public mdlEntradaTime(br21.core.entidade.time.entTime time)
         {
             idttime = time.idttime;
             dsctime = time.dsctime;
             sgltime = time.sgltime;
-            imgescudo = time.imgescudo;
+            //imgescudo = time.imgescudo;
         }
 
         public entTime Entidade() {
@@ -25,7 +34,7 @@ namespace br21.core.modelo.time
             result.idttime = this.idttime;
             result.dsctime = this.dsctime;
             result.sgltime = this.sgltime;
-            result.imgescudo = this.imgescudo;
+            //result.imgescudo = this.imgescudo;
             return result;
         }
 
@@ -33,6 +42,10 @@ namespace br21.core.modelo.time
 
     public class mdlEntradaTimes : List<mdlEntradaTime>
     {
+
+        public mdlEntradaTimes() { 
+        
+        }
 
         public mdlEntradaTimes(List<entTime> times)
         {

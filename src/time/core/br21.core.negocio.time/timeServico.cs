@@ -23,7 +23,7 @@ namespace br21.core.negocio.time
 
                 Expression<Func<entTime, bool>> Filtro = a => true;
                 if (idtime!="*")
-                    Filtro = a => a.idttime == System.Convert.ToInt32(idtime);  //(a.dsctime.Contains(NomeTime) || a.dsctime.Contains(NomeTime));
+                    Filtro = a => a.idttime == idtime;  //(a.dsctime.Contains(NomeTime) || a.dsctime.Contains(NomeTime));
                 List <entTime> Lcrt = cr.GetList(Filtro);
 
                 errcode = 400;// <response code="400">valor do parametro inválido</response>
@@ -35,7 +35,7 @@ namespace br21.core.negocio.time
                                 idttime = item.idttime,
                                 sgltime = item.sgltime,
                                 dsctime = item.dsctime,
-                                imgescudo = item.imgescudo
+                                //imgescudo = item.imgescudo
                             });
                 }
 
@@ -52,7 +52,7 @@ namespace br21.core.negocio.time
 
         }
 
-        public static entTime GetById(out int errcode, int? idtTime)
+        public static entTime GetById(out int errcode, string idtTime)
         {
 
             entTime result = null;
@@ -71,7 +71,7 @@ namespace br21.core.negocio.time
                         idttime = item.idttime,
                         sgltime = item.sgltime,
                         dsctime = item.dsctime,
-                        imgescudo = item.imgescudo
+                        //imgescudo = item.imgescudo
                     };
                 }
 
@@ -104,7 +104,7 @@ namespace br21.core.negocio.time
                     idttime = item.idttime,
                     sgltime = item.sgltime,
                     dsctime = item.dsctime,
-                    imgescudo = item.imgescudo
+                    //imgescudo = item.imgescudo
                 };
 
 
@@ -140,7 +140,7 @@ namespace br21.core.negocio.time
             // <response code="409">carteira já existente (nome da carteira ja existe)</response>
         }
 
-        public static void Del(out int errcode, int? idtTime)
+        public static void Del(out int errcode, string idtTime)
         {
 
             errcode = 400;// <response code="400">id da carteira inálida</response>
@@ -183,7 +183,7 @@ namespace br21.core.negocio.time
                     idttime = item.idttime,
                     sgltime = item.sgltime,
                     dsctime = item.dsctime,
-                    imgescudo = item.imgescudo
+                    //imgescudo = item.imgescudo
 
                 };
 
@@ -207,7 +207,7 @@ namespace br21.core.negocio.time
                 updates.Add(update.Set("idttime",obj.idttime));
                 updates.Add(update.Set("sgltime", obj.sgltime));
                 updates.Add(update.Set("dsctime", obj.dsctime));
-                updates.Add(update.Set("imgescudo", obj.imgescudo));
+                //updates.Add(update.Set("imgescudo", obj.imgescudo));
 
                 cr.UpdateOne(Filtro, update.Combine(updates));
                 result = 201;// 201 - arteira incluida com sucesso

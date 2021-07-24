@@ -72,7 +72,7 @@ namespace br21.api.time.Controllers
         public virtual IActionResult Post([FromBody] mdlEntradaTime value)
         {
             int errcode = jogoService.Add(value.Entidade());
-            return StatusCode(200, value);
+            return StatusCode(errcode, value);
         }
 
         // PUT api/<TimeController>/5
@@ -80,16 +80,16 @@ namespace br21.api.time.Controllers
         public virtual IActionResult Put(int id, [FromBody] mdlEntradaTime value)
         {
             int errcode = jogoService.Update(id, value.Entidade());
-            return StatusCode(200, value);
+            return StatusCode(errcode, value);
         }
 
         // DELETE api/<TimeController>/5
         [HttpDelete("{id}")]
-        public virtual IActionResult Delete(int id)
+        public virtual IActionResult Delete(string id)
         {
             int errcode = 0;
             jogoService.Del(out errcode, id);
-            return StatusCode(202, id);
+            return StatusCode(errcode, id);
         }
     }
 }
