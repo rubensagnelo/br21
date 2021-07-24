@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\infra\br21.infra.data.jogo\br21.infra.data.jogo.csproj" />
+    <ProjectReference Include="..\br21.core.entidade.jogo\br21.core.entidade.jogo.csproj" />
   </ItemGroup>
 
 </Project>

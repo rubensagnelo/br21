@@ -20,7 +20,7 @@
     "br21.api.time": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "br21api/time",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -31,7 +31,10 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/br21api/time",
       "publishAllPorts": true,
-      "useSSL": true
+      "useSSL": true,
+      
     }
+    
+    
   }
 }

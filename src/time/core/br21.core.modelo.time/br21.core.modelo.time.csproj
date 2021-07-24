@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\infra\br21.infra.data.time\br21.infra.data.time.csproj" />
+    <ProjectReference Include="..\..\..\_base\br21.base.modelo\br21.base.modelo.csproj" />
     <ProjectReference Include="..\br21.core.entidade.time\br21.core.entidade.time.csproj" />
   </ItemGroup>
 

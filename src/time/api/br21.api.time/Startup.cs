@@ -26,6 +26,7 @@ namespace br21.api.time
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();//CORS
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,8 @@ namespace br21.api.time
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(option => option.AllowAnyOrigin());//CORS
 
             app.UseEndpoints(endpoints =>
             {
