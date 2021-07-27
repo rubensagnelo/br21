@@ -75,7 +75,13 @@ namespace br21.api.time
 
             app.UseRouting();
 
-            app.UseCors(option => option.AllowAnyOrigin()); //CORS
+
+            app.UseCors(x => x
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                    .AllowCredentials()); // allow credentials
+
 
             app.UseAuthorization();
 
