@@ -53,11 +53,26 @@ namespace br21.core.negocio.jogo
                 errcode = 400;// <response code="400">valor do parametro inválido</response>
                 foreach (var item in Lcrt)
                 {
-                    resultprxTime = times.Where(p => p.idttime.Equals(item.idttimemandante)).First();
-                    if (resultprxTime != null) timemandante =resultprxTime.dsctime;
-                    
-                    resultprxTime = (Ext_entTime)times.Where(p => p.idttime.Equals(item.idttimevisitante)).First();
-                    if (resultprxTime != null) timevisitante = resultprxTime.dsctime;
+                    timemandante = string.Empty;
+                    try
+                    {
+                        resultprxTime = times.Where(p => p.idttime.Equals(item.idttimemandante)).First();
+                        if (resultprxTime != null) timemandante = resultprxTime.dsctime;
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+
+                    timevisitante = string.Empty;
+                    try
+                    {
+                        resultprxTime = times.Where(p => p.idttime.Equals(item.idttimevisitante)).First();
+                        if (resultprxTime != null) timevisitante = resultprxTime.dsctime;
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+
 
                     result.Add(
                             new entJogoRetorno()

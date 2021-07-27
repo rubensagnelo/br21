@@ -13,7 +13,6 @@ namespace br21.api.time.Controllers
 {
     [Route("br21api/[controller]")]
     [ApiController]
-    [EnableCors("AllowSpecificOrigin")]
     public class TimeController : ControllerBase
     {
         [HttpGet]

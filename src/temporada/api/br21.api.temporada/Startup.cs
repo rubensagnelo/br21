@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace br21.api.temporada
 {
@@ -26,6 +27,28 @@ namespace br21.api.temporada
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "br21(Temporada)",
+                    Description = "API para manutenção de jogos do Brasileirão - ASP.NET Core Web API",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Rubens Agnelo",
+                        Email = "rubensagnelo@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/rubensagnelo/"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+            });
             services.AddCors();//CORS
         }
 
@@ -35,15 +58,23 @@ namespace br21.api.temporada
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1");
+                    c.RoutePrefix = string.Empty;
+                });
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors(option => option.AllowAnyOrigin()); //CORS
 
-            app.UseCors(option => option.AllowAnyOrigin());//CORS
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

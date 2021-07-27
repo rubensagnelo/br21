@@ -13,7 +13,6 @@ namespace br21.api.temporada.Controllers
 {
     [Route("br21api/[controller]")]
     [ApiController]
-    [EnableCors("AllowSpecificOrigin")]
     public class TemporadaController : ControllerBase
     {
         [HttpGet]
