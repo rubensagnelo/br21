@@ -31,10 +31,7 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/br21api/time",
       "publishAllPorts": true,
-      "useSSL": true,
-      
+      "useSSL": true
     }
-    
-    
   }
 }

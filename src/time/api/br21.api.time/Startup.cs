@@ -71,7 +71,7 @@ namespace br21.api.time
                 });
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
