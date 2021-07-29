@@ -20,6 +20,8 @@ namespace br21.core.entidade.jogo
         //public string dsctimevisitante { get; set; } //Nome do time visitante
         public int vlrplacarvisitante { get; set; } //placar do visitante
 
+
+
     }
 
     public class entJogos : List<entJogo>

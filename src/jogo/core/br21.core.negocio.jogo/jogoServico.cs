@@ -159,6 +159,7 @@ namespace br21.core.negocio.jogo
 
                 entJogo obj = new entJogo()
                 {
+                    _id = Guid.NewGuid().ToString(),
                     idjogo = item.idjogo,
                     idttemporada = item.idttemporada,
                     rodada = item.rodada,
