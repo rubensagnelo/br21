@@ -155,7 +155,7 @@ namespace br21.core.negocio.jogo
             try
             {
 
-                result = 401;//401 - parametro ou estrutura de entrada inálida
+                result = 400;//400 - parametro ou estrutura de entrada inálida
 
                 entJogo obj = new entJogo()
                 {
@@ -239,7 +239,7 @@ namespace br21.core.negocio.jogo
             try
             {
 
-                result = 401;//401 - parametro ou estrutura de entrada inválida
+                result = 400;//400 - parametro ou estrutura de entrada inálida
 
                 entJogo obj = new entJogo()
                 {
@@ -300,7 +300,7 @@ namespace br21.core.negocio.jogo
 
             // <response code="201">carteira incluida</response>
             // <response code="400">Identificador da carteira fornecido é inválido</response>
-            // <response code="401">401 - parametro ou estrutura de entrada inálida</response>
+            // <response code="400">400 - parametro ou estrutura de entrada inálida</response>
             // <response code="409">carteira já existente (nome da carteira ja existe)</response>
             // <response code="404">carteira nao encontrada</response>
             // <response code="405">Exceção na autalização dos dados da carteira</response>

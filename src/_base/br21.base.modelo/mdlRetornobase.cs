@@ -6,5 +6,6 @@ namespace br21.modelobase
     {
         public string codigoErroNegocio { get; set; }
         public string msgErroNegocio { get; set; }
+        public string dscerrodetalhado { get; set; }
     }
 }
