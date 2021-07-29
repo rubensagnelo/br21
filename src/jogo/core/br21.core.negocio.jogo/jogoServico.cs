@@ -174,8 +174,11 @@ namespace br21.core.negocio.jogo
 
 
                 Expression<Func<entJogo, bool>> Filtro = a => a.idjogo == obj.idjogo ||
-                                                            (a.idttimemandante == obj.idttimemandante && 
-                                                            a.idttimevisitante == obj.idttimevisitante);
+                                                            (   a.idttemporada == obj.idttemporada &&
+                                                                a.rodada == obj.rodada &&
+                                                                a.idttimemandante == obj.idttimemandante && 
+                                                                a.idttimevisitante == obj.idttimevisitante
+                                                              );
                 entJogo crt = cr.GetOne(Filtro);
 
 
