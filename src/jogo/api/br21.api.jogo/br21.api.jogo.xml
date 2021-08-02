@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>br21.api.jogo</name>
+    </assembly>
+    <members>
+        <member name="M:br21.api.time.Controllers.JogoController.Get">
+            <summary>
+            Recupera a lista de todos os jogos  
+            </summary>
+            <returns>Resultado da operação</returns>
+            <response code="200">Sucesso na recuperação dos Jogos</response>
+            <response code="400">valor do parametro inválido</response> 
+        </member>
+        <member name="M:br21.api.time.Controllers.JogoController.Get(System.Int32)">
+            <summary>
+            Recupera a lista de todos os jogos de uma temporada 
+            </summary>
+            <param name="Temporada">Temporada relacionada aos jogos a serem selecionados</param>
+            <returns>Resultado da operação</returns>
+            <returns>Lista de todos os jogos de uma temporada</returns>
+            <response code="200">Sucesso na recuperação dos Jogos</response>
+            <response code="400">valor do parametro inválido</response> 
+        </member>
+        <member name="M:br21.api.time.Controllers.JogoController.Get(System.Int32,System.Int32)">
+            <summary>
+            Recupera a lista de todos os jogos de uma temporada e rodada 
+            </summary>
+            <param name="Temporada">Temporada relacionada aos jogos a serem selecionados</param>
+            <param name="rodada">rodada relacionada aos jogos a serem selecionados</param>
+            <returns>Resultado da operação</returns>
+            <returns>Lista de todos os jogos de uma temporada e rodada</returns>
+            <response code="200">Sucesso na recuperação dos Jogos</response>
+            <response code="400">valor do parametro inválido</response> 
+        </member>
+        <member name="M:br21.api.time.Controllers.JogoController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Recupera a lista de todos os jogos de uma temporada, rodada e identificador do jogo 
+            </summary>
+            <param name="Temporada">Temporada relacionada aos jogos a serem selecionados</param>
+            <param name="rodada">rodada relacionada aos jogos a serem selecionados</param>
+            <returns>Resultado da operação</returns>
+            <param name="idjogo">Identificador do Jogo relacionada ao jogo a ser selecionado</param>
+            <returns>Lista de todos os jogos de uma temporada, rodada e identificador do jogo</returns>
+            <response code="200">Sucesso na recuperação dos Jogos</response>
+            <response code="400">valor do parametro inválido</response> 
+        </member>
+        <member name="M:br21.api.time.Controllers.JogoController.Post(br21.core.modelo.jogo.mdlEntradaJogo)">
+            <summary>
+            Inclui um jogo
+            </summary>
+            <param name="value">Jogo a ser incluido (vide estrutura mdlEntradaJogo)</param>
+            <returns>Resultado da operação</returns>
+            <response code="201">jogo incluido com sucesso</response>
+            <response code="400">parametro ou estrutura de entrada inálida</response>
+            <response code="409">jogo já existente (nome da carteira ja existe)</response>
+        </member>
+        <member name="M:br21.api.time.Controllers.JogoController.Put(System.Int32,br21.core.modelo.jogo.mdlEntradaJogo)">
+            <summary>
+            Altera os valores de um Jogo
+            </summary>
+            <param name="id">Identificador do Jogo</param>
+            <param name="value">Dados a serem alterados de um jogo de Identificador especificado no parâmetro [id]</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="M:br21.api.time.Controllers.JogoController.Delete(System.Int32)">
+            <summary>
+            Exclui um Jogo
+            </summary>
+            <param name="id">Identificador do jogo a ser excluido</param>
+            <returns>Resultado da operação</returns>
+        </member>
+    </members>
+</doc>

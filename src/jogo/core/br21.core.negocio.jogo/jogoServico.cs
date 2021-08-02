@@ -150,7 +150,7 @@ namespace br21.core.negocio.jogo
         public static int Add(entJogo item)
         {
 
-            int result = 201;// 201 - arteira incluida com sucesso
+            int result = 201;// 201 - jogo incluida com sucesso
 
             try
             {
@@ -165,10 +165,8 @@ namespace br21.core.negocio.jogo
                     rodada = item.rodada,
                     dtajogo = item.dtajogo,
                     idttimemandante = item.idttimemandante,
-                    //dsctimemandante = item.dsctimemandante,
                     vlrplacarmandante = item.vlrplacarmandante,
                     idttimevisitante = item.idttimevisitante,
-                    //dsctimevisitante = item.dsctimevisitante,
                     vlrplacarvisitante = item.vlrplacarvisitante
                 };
 
@@ -184,13 +182,13 @@ namespace br21.core.negocio.jogo
 
                 if (crt != null)
                 {
-                    result = 409; //carteira já existente (Titulo ou id da carteira ja existe)
+                    result = 409; //jogo já existente (Titulo ou id da carteira ja existe)
                     throw new Exception("409 - carteira já existente (Titulo ou id da carteira ja existe)");
                 }
 
 
                 cr.InsertOne(obj);
-                result = 201;// 201 - arteira incluida com sucesso
+                result = 201;// 201 - jogo incluido com sucesso
 
             }
             catch (System.Exception ex)
@@ -202,15 +200,15 @@ namespace br21.core.negocio.jogo
 
             return result;
 
-            // <response code="201">carteira incluida</response>
+            // <response code="201">jogo incluido com sucesso</response>
             // <response code="400">parametro ou estrutura de entrada inálida</response>
-            // <response code="409">carteira já existente (nome da carteira ja existe)</response>
+            // <response code="409">jogo já existente (nome da carteira ja existe)</response>
         }
 
         public static void Del(out int errcode, int? idjogo)
         {
 
-            errcode = 400;// <response code="400">id da carteira inálida</response>
+            errcode = 400;// <response code="400">id da jogo inálido</response>
             try
             {
 
@@ -218,14 +216,14 @@ namespace br21.core.negocio.jogo
                 entJogo crt = cr.GetOne(Filtro);
                 if (crt == null)
                 {
-                    errcode = 404; //404 - arteira nao encontrada
+                    errcode = 404; //404 - jogo nao encontrada
                     throw new Exception("404 - arteira nao encontrada");
                 }
 
-                // <response code="400">id da carteira inálida</response>
+                // <response code="400">id do jogo inálido</response>
 
                 cr.DeleteOne(Filtro);
-                errcode = 202;// <response code="202">carteira excluída</response>
+                errcode = 202;// <response code="202">jogo excluído</response>
 
             }
             catch (System.Exception ex)
@@ -238,7 +236,7 @@ namespace br21.core.negocio.jogo
         public static int Update(long? IDJogo, entJogo item)
         {
 
-            int result = 201;// 201 - arteira incluida com sucesso
+            int result = 204;// 204 - Jogo atualizado com sucesso
 
             try
             {
@@ -266,8 +264,8 @@ namespace br21.core.negocio.jogo
 
                 if (crt == null)
                 {
-                    result = 404; //404 - carteira nao encontrada
-                    throw new Exception("409 - carteira já existente (Titulo ou id da carteira ja existe)");
+                    result = 404; //404 - jogo nao encontrado
+                    throw new Exception("404 - jogo não encontrado");
                 }
 
 
@@ -289,7 +287,7 @@ namespace br21.core.negocio.jogo
 
 
                 cr.UpdateOne(Filtro, update.Combine(updates));
-                result = 201;// 201 - arteira incluida com sucesso
+                result = 204;// 204 - jogo atualizado com sucesso
 
 
             }

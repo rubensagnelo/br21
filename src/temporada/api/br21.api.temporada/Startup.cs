@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+
+
 
 namespace br21.api.temporada
 {
@@ -30,25 +34,29 @@ namespace br21.api.temporada
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                c.SwaggerDoc("v1", new OpenApiInfo()
                 {
-                    Version = "v1",
-                    Title = "br21(Temporada)",
-                    Description = "API para manutenção de jogos do Brasileirão - ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://example.com/terms"),
-                    Contact = new OpenApiContact
+                    Contact = new OpenApiContact()
                     {
-                        Name = "Rubens Agnelo",
                         Email = "rubensagnelo@gmail.com",
-                        Url = new Uri("https://www.linkedin.com/in/rubensagnelo/"),
+                        Name = "Rubens Agnelo",
+                        Url = new Uri("https://www.linkedin.com/in/rubensagnelo/")
                     },
-                    License = new OpenApiLicense
+                    Description = "API para manutenção de jogos do Brasileirão - ASP.NET Core Web API",
+                    License = new OpenApiLicense()
                     {
                         Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
-                    }
+                        Url = new Uri("https://example.com/license")
+                    },
+                    TermsOfService = new Uri("https://example.com/terms")
                 });
+
+                //Introduz o comentário na documentação
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
+
             services.AddCors();//CORS
         }
 
@@ -61,10 +69,10 @@ namespace br21.api.temporada
 
                 app.UseSwagger();
 
-                app.UseSwaggerUI(c =>
+                app.UseSwaggerUI(opt =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1");
-                    c.RoutePrefix = string.Empty;
+                    opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Temporada]");
+                    opt.RoutePrefix = string.Empty;
                 });
             }
 

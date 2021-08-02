@@ -17,8 +17,12 @@ namespace br21.api.time.Controllers
     public class JogoController : ControllerBase
     {
 
-
-
+        /// <summary>
+        /// Recupera a lista de todos os jogos  
+        /// </summary>
+        /// <returns>Resultado da operação</returns>
+        /// <response code="200">Sucesso na recuperação dos Jogos</response>
+        /// <response code="400">valor do parametro inválido</response> 
         [HttpGet]
         public virtual IActionResult Get()
         {
@@ -27,7 +31,14 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, lst);
         }
 
-
+        /// <summary>
+        /// Recupera a lista de todos os jogos de uma temporada 
+        /// </summary>
+        /// <param name="Temporada">Temporada relacionada aos jogos a serem selecionados</param>
+        /// <returns>Resultado da operação</returns>
+        /// <returns>Lista de todos os jogos de uma temporada</returns>
+        /// <response code="200">Sucesso na recuperação dos Jogos</response>
+        /// <response code="400">valor do parametro inválido</response> 
         [HttpGet("{Temporada}")]
         public virtual IActionResult Get(int Temporada)
         {
@@ -36,6 +47,15 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, lst);
         }
 
+        /// <summary>
+        /// Recupera a lista de todos os jogos de uma temporada e rodada 
+        /// </summary>
+        /// <param name="Temporada">Temporada relacionada aos jogos a serem selecionados</param>
+        /// <param name="rodada">rodada relacionada aos jogos a serem selecionados</param>
+        /// <returns>Resultado da operação</returns>
+        /// <returns>Lista de todos os jogos de uma temporada e rodada</returns>
+        /// <response code="200">Sucesso na recuperação dos Jogos</response>
+        /// <response code="400">valor do parametro inválido</response> 
         [HttpGet("{Temporada}/{rodada}")]
         public virtual IActionResult Get(int Temporada, int rodada)
         {
@@ -44,6 +64,17 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, times);
         }
 
+
+        /// <summary>
+        /// Recupera a lista de todos os jogos de uma temporada, rodada e identificador do jogo 
+        /// </summary>
+        /// <param name="Temporada">Temporada relacionada aos jogos a serem selecionados</param>
+        /// <param name="rodada">rodada relacionada aos jogos a serem selecionados</param>
+        /// <returns>Resultado da operação</returns>
+        /// <param name="idjogo">Identificador do Jogo relacionada ao jogo a ser selecionado</param>
+        /// <returns>Lista de todos os jogos de uma temporada, rodada e identificador do jogo</returns>
+        /// <response code="200">Sucesso na recuperação dos Jogos</response>
+        /// <response code="400">valor do parametro inválido</response> 
         [HttpGet("{Temporada}/{rodada}/{idjogo}")]
         public virtual IActionResult Get(int Temporada, int rodada, int idjogo)
         {
@@ -52,6 +83,15 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, times);
         }
 
+
+        /// <summary>
+        /// Inclui um jogo
+        /// </summary>
+        /// <param name="value">Jogo a ser incluido (vide estrutura mdlEntradaJogo)</param>
+        /// <returns>Resultado da operação</returns>
+        /// <response code="201">jogo incluido com sucesso</response>
+        /// <response code="400">parametro ou estrutura de entrada inálida</response>
+        /// <response code="409">jogo já existente (nome da carteira ja existe)</response>
         [HttpPost]
         public virtual IActionResult Post([FromBody] mdlEntradaJogo value)
         {
@@ -59,6 +99,15 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, value);
         }
 
+        /// <summary>
+        /// Altera os valores de um Jogo
+        /// </summary>
+        /// <param name="id">Identificador do Jogo</param>
+        /// <param name="value">Dados a serem alterados de um jogo de Identificador especificado no parâmetro [id]</param>
+        /// <returns>Resultado da operação</returns>
+        // <response code="204">Jogo atualizado com sucesso</response>
+        // <response code="400">Parametro ou estrutura de entrada inálida</response>
+        // <response code="404">jogo nao encontrado</response>
         [HttpPut]
         public virtual IActionResult Put(int id, [FromBody] mdlEntradaJogo value)
         {
@@ -66,6 +115,14 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, value);
         }
 
+        /// <summary>
+        /// Exclui um Jogo
+        /// </summary>
+        /// <param name="id">Identificador do jogo a ser excluido</param>
+        /// <returns>Resultado da operação</returns>
+        // <response code="202">Jogo excluido com sucesso</response>
+        // <response code="400">Id do jogo invalido</response>
+        // <response code="404">Jogo nao encontrado</response>        
         [HttpDelete("{id}")]
         public virtual IActionResult Delete(int id)
         {

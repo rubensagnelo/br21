@@ -19,7 +19,7 @@ namespace br21.api.temporada.Controllers
         public virtual IActionResult Get()
         {
             int errcode = 0;
-            mdlEntradaTemporadas lst = new mdlEntradaTemporadas(temporadaServico.Get(out errcode));
+            mdlRetornoTemporadas lst = new mdlRetornoTemporadas(temporadaServico.Get(out errcode));
             return StatusCode(errcode, lst);
         }
 
@@ -27,7 +27,7 @@ namespace br21.api.temporada.Controllers
         public virtual IActionResult Get(int id)
         {
             int errcode = 0;
-            mdlEntradaTemporadas lst = new mdlEntradaTemporadas(temporadaServico.Get(out errcode, id));
+            mdlRetornoTemporadas lst = new mdlRetornoTemporadas(temporadaServico.Get(out errcode, id));
             return StatusCode(errcode, lst);
         }
 

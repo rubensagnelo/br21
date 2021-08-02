@@ -2,6 +2,9 @@
 using br21.modelobase;
 using br21.core.entidade.jogo;
 using System.Collections.Generic;
+using br21.modelobase;
+using System.Text.Json.Serialization;
+
 
 namespace br21.core.modelo.jogo
 {
@@ -72,9 +75,10 @@ namespace br21.core.modelo.jogo
 
     }
 
+    
     public class mdlRetornoJogos : List<mdlRetornoJogo>
     {
-
+ 
         public mdlRetornoJogos()
         {
 

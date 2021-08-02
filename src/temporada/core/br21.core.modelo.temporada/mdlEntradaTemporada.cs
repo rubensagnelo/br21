@@ -1,6 +1,7 @@
 ﻿using System;
 using br21.core.entidade.temporada;
 using System.Collections.Generic;
+using br21.modelobase;
 
 namespace br21.core.modelo.temporada
 {
