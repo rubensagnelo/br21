@@ -23,7 +23,7 @@ namespace br21.baseutils
                 mail.Priority = MailPriority.High; //Prioridade do E-Mail
                 SmtpClient client = new SmtpClient();  //Adicionando as credenciais do seu e-mail e senha:
                 client.Credentials = new System.Net.NetworkCredential(remetente, "br#21@ah#86");
-            } catch(Exception ex)
+            } catch(Exception)
             {
                 result = false;
 

@@ -36,7 +36,7 @@ namespace br21.core.entidade.jogo
             {
                 Convert.ToDateTime(valor);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception("Formato de data invalido no atributo[" + atributo + "] O formato deve ser dd/MM/yyyy HH:mm");
             }

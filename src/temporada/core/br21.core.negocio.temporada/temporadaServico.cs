@@ -37,7 +37,7 @@ namespace br21.core.negocio.temporada
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -71,7 +71,7 @@ namespace br21.core.negocio.temporada
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -113,7 +113,7 @@ namespace br21.core.negocio.temporada
                 result = 201;// 201 - arteira incluida com sucesso
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
 
@@ -148,17 +148,17 @@ namespace br21.core.negocio.temporada
                 errcode = 202;// <response code="202">carteira excluída</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
 
         }
 
-        public static int Update(long? IDJogo, entTemporada item)
+        public static int Update(long? IDTemporada, entTemporada item)
         {
 
-            int result = 201;// 201 - arteira incluida com sucesso
+            int result = 204;// 204 - Temporada atualizada com sucesso
 
             try
             {
@@ -171,7 +171,7 @@ namespace br21.core.negocio.temporada
                 };
 
 
-                Expression<Func<entTemporada, bool>> Filtro = a => a.idtemporada == obj.idtemporada;
+                Expression<Func<entTemporada, bool>> Filtro = a => a.idtemporada == IDTemporada;
                 entTemporada crt = cr.GetOne(Filtro);
 
 
@@ -189,11 +189,11 @@ namespace br21.core.negocio.temporada
                 //updates.Add(update.Set("imgescudo", obj.imgescudo));
 
                 cr.UpdateOne(Filtro, update.Combine(updates));
-                result = 201;// 201 - temporada alterada com sucesso
+                result = 204;// 204 - temporada alterada com sucesso
 
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
 

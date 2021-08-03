@@ -7,11 +7,18 @@ using br21.core.negocio.jogo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Configuration;
+using br21.modelobase;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+
 namespace br21.api.time.Controllers
 {
+
+    /// <summary>
+    /// Recurso para manutenção do Jogo
+    /// Documentação em: https://localhost:5001/index.html
+    /// </summary>
     [Route("br21api/[controller]")]
     [ApiController]
     public class JogoController : ControllerBase
@@ -91,13 +98,14 @@ namespace br21.api.time.Controllers
         /// <returns>Resultado da operação</returns>
         /// <response code="201">jogo incluido com sucesso</response>
         /// <response code="400">parametro ou estrutura de entrada inálida</response>
-        /// <response code="409">jogo já existente (nome da carteira ja existe)</response>
+        /// <response code="409">jogo já existente</response>
         [HttpPost]
         public virtual IActionResult Post([FromBody] mdlEntradaJogo value)
         {
             int errcode = jogoServico.Add(value.Entidade());
             return StatusCode(errcode, value);
         }
+
 
         /// <summary>
         /// Altera os valores de um Jogo
@@ -108,8 +116,8 @@ namespace br21.api.time.Controllers
         // <response code="204">Jogo atualizado com sucesso</response>
         // <response code="400">Parametro ou estrutura de entrada inálida</response>
         // <response code="404">jogo nao encontrado</response>
-        [HttpPut]
-        public virtual IActionResult Put(int id, [FromBody] mdlEntradaJogo value)
+        [HttpPut("{id}")]
+        public virtual IActionResult Put([FromRoute] int id, [FromBody] mdlEntradaJogo value)
         {
             int errcode = jogoServico.Update(id, value.Entidade());
             return StatusCode(errcode, value);
@@ -131,12 +139,10 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, id);
         }
 
-        private IConfiguration _configuration;
         private String _urlTime = "";
         public JogoController(IConfiguration config)
         {
-            _configuration = config;
-            _urlTime = _configuration.GetSection("Aplicacao").GetSection("Parametros").GetValue<String>("urlserviceTime").ToString();
+            _urlTime = config.GetSection("Aplicacao").GetSection("Parametros").GetValue<String>("urlserviceTime").ToString();
         }
 
 

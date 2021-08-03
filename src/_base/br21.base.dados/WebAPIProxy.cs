@@ -34,7 +34,7 @@ namespace dados.baseproxy
                 return JsonConvert.DeserializeObject<T>(response);
             } 
         }
-        catch (System.Exception ex)
+        catch (System.Exception)
         {
             throw;
         }

@@ -42,7 +42,7 @@ namespace br21.core.negocio.time
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -79,7 +79,7 @@ namespace br21.core.negocio.time
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -92,7 +92,7 @@ namespace br21.core.negocio.time
         public static int Add(entTime item)
         {
 
-            int result = 201;// 201 - arteira incluida com sucesso
+            int result = 201;// 201 - Time incluida com sucesso
 
             try
             {
@@ -117,16 +117,16 @@ namespace br21.core.negocio.time
 
                 if (crt != null)
                 {
-                    result = 409; //carteira já existente (Titulo ou id da carteira ja existe)
+                    result = 409; //Time já existente (Titulo ou id da carteira ja existe)
                     throw new Exception("409 - Time já existente (id ou Nome(descrição) ou sigla do time ja existe)");
                 }
 
 
                 cr.InsertOne(obj);
-                result = 201;// 201 - arteira incluida com sucesso
+                result = 201;// 201 - Time incluida com sucesso
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
 
@@ -135,15 +135,15 @@ namespace br21.core.negocio.time
 
             return result;
 
-            // <response code="201">carteira incluida</response>
+            // <response code="201">Time incluida</response>
             // <response code="400">parametro ou estrutura de entrada inálida</response>
-            // <response code="409">carteira já existente (nome da carteira ja existe)</response>
+            // <response code="409">Time já existente</response>
         }
 
         public static void Del(out int errcode, string idtTime)
         {
 
-            errcode = 400;// <response code="400">id da carteira inálida</response>
+            errcode = 400;// <response code="400">id do Time inálido</response>
             try
             {
 
@@ -151,27 +151,27 @@ namespace br21.core.negocio.time
                 entTime crt = cr.GetOne(Filtro);
                 if (crt == null)
                 {
-                    errcode = 404; //404 - arteira nao encontrada
+                    errcode = 404; //404 - Time nao encontrada
                     throw new Exception("404 - Time nao encontrado");
                 }
 
-                // <response code="400">id da carteira inálida</response>
+                // <response code="400">id do Time inálida</response>
 
                 cr.DeleteOne(Filtro);
-                errcode = 202;// <response code="202">carteira excluída</response>
+                errcode = 202;// <response code="202">Time excluído</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
 
         }
 
-        public static int Update(long? IDJogo, entTime item)
+        public static int Update(long? idTime, entTime item)
         {
 
-            int result = 201;// 201 - arteira incluida com sucesso
+            int result = 201;// 201 - Time incluida com sucesso
 
             try
             {
@@ -188,15 +188,14 @@ namespace br21.core.negocio.time
                 };
 
 
-                Expression<Func<entTime, bool>> Filtro = a => a.idttime == obj.idttime ||
-                                                              a.dsctime == obj.dsctime ||
-                                                              a.sgltime == obj.sgltime;
+                Expression<Func<entTime, bool>> Filtro = a => a.idttime == idTime.ToString();
+
                 entTime crt = cr.GetOne(Filtro);
 
 
                 if (crt == null)
                 {
-                    result = 404; //404 - carteira nao encontrada
+                    result = 404; //404 - Time nao encontrado
                     throw new Exception("409 - Time já existente (id ou Nome(descrição) ou sigla do time ja existe)");
                 }
 
@@ -210,11 +209,11 @@ namespace br21.core.negocio.time
                 //updates.Add(update.Set("imgescudo", obj.imgescudo));
 
                 cr.UpdateOne(Filtro, update.Combine(updates));
-                result = 201;// 201 - arteira incluida com sucesso
+                result = 201;// 201 - Time incluida com sucesso
 
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
 
@@ -223,12 +222,12 @@ namespace br21.core.negocio.time
 
             return result;
 
-            // <response code="201">carteira incluida</response>
-            // <response code="400">Identificador da carteira fornecido é inválido</response>
+            // <response code="201">Time incluido</response>
+            // <response code="400">Identificador da Time fornecido é inválido</response>
             // <response code="400">400 - parametro ou estrutura de entrada inálida</response>
-            // <response code="409">carteira já existente (nome da carteira ja existe)</response>
-            // <response code="404">carteira nao encontrada</response>
-            // <response code="405">Exceção na autalização dos dados da carteira</response>
+            // <response code="409">Time já existente </response>
+            // <response code="404">Time nao encontrada</response>
+            // <response code="405">Exceção na autalização dos dados do Time</response>
         }
 
 

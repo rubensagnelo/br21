@@ -44,7 +44,7 @@ namespace br21.core.negocio.jogo
                 {
                     times = WebAPIProxy.Get<Ext_entTimes>(urlServiceTime);
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
                 
                 string timemandante = null;
                 string timevisitante = null;
@@ -59,9 +59,7 @@ namespace br21.core.negocio.jogo
                         resultprxTime = times.Where(p => p.idttime.Equals(item.idttimemandante)).First();
                         if (resultprxTime != null) timemandante = resultprxTime.dsctime;
                     }
-                    catch (Exception ex)
-                    {
-                    }
+                    catch {}
 
                     timevisitante = string.Empty;
                     try
@@ -69,9 +67,7 @@ namespace br21.core.negocio.jogo
                         resultprxTime = times.Where(p => p.idttime.Equals(item.idttimevisitante)).First();
                         if (resultprxTime != null) timevisitante = resultprxTime.dsctime;
                     }
-                    catch (Exception ex)
-                    {
-                    }
+                    catch {}
 
 
                     result.Add(
@@ -93,7 +89,7 @@ namespace br21.core.negocio.jogo
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -137,7 +133,7 @@ namespace br21.core.negocio.jogo
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -191,7 +187,7 @@ namespace br21.core.negocio.jogo
                 result = 201;// 201 - jogo incluido com sucesso
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
 
@@ -226,7 +222,7 @@ namespace br21.core.negocio.jogo
                 errcode = 202;// <response code="202">jogo excluído</response>
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
             }
@@ -258,7 +254,7 @@ namespace br21.core.negocio.jogo
                 };
 
 
-                Expression<Func<entJogo, bool>> Filtro = a => a.idjogo == obj.idjogo;
+                Expression<Func<entJogo, bool>> Filtro = a => a.idjogo == IDJogo;
                 entJogo crt = cr.GetOne(Filtro);
 
 
@@ -291,7 +287,7 @@ namespace br21.core.negocio.jogo
 
 
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
 

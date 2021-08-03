@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,10 +40,11 @@ namespace br21.api.temporada
                     Contact = new OpenApiContact()
                     {
                         Email = "rubensagnelo@gmail.com",
-                        Name = "Rubens Agnelo",
-                        Url = new Uri("https://www.linkedin.com/in/rubensagnelo/")
+                        Name = "br21",
+                        Url = new Uri("http://vue-pias-asd-13.s3-website-us-east-1.amazonaws.com")
                     },
-                    Description = "API para manutenção de jogos do Brasileirão - ASP.NET Core Web API",
+                    Description = new StringBuilder("API para manutenção de jogos do Brasileirão - ASP.NET Core Web API").
+                                                    Append(" [Recurso: Temporada]").ToString(),
                     License = new OpenApiLicense()
                     {
                         Name = "Use under LICX",
@@ -72,7 +74,7 @@ namespace br21.api.temporada
                 app.UseSwaggerUI(opt =>
                 {
                     opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Temporada]");
-                    opt.RoutePrefix = string.Empty;
+                    opt.RoutePrefix = "br21api/temporada/swagger";//string.Empty;
                 });
             }
 
