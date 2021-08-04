@@ -89,9 +89,9 @@ namespace br21.core.negocio.jogo
                 errcode = 200; // <response code="200">resultados da consulta</response>
 
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-
+                throw ex;
             }
 
             return result;
