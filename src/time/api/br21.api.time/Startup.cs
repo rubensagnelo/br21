@@ -68,16 +68,15 @@ namespace br21.api.time
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                app.UseSwagger();
-
-                app.UseSwaggerUI(opt =>
-                {
-                    opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Time]");
-                    opt.RoutePrefix = "br21api/time/swagger";//string.Empty;
-                });
-
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Time]");
+                opt.RoutePrefix = "br21api/time/swagger";//string.Empty;
+            });
 
             app.UseHttpsRedirection();
 

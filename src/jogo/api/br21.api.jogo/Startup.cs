@@ -69,17 +69,17 @@ namespace br21.api.jogo
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                app.UseSwagger();
-
-                app.UseSwaggerUI(opt =>
-                {
-                    opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Jogo]");
-                    opt.RoutePrefix = "br21api/jogo/swagger";//string.Empty;
-
-                });
-
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Jogo]");
+                opt.RoutePrefix = "br21api/jogo/swagger";//string.Empty;
+
+            });
+
 
             app.UseHttpsRedirection();
 

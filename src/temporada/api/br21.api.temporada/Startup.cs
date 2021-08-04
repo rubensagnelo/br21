@@ -68,15 +68,16 @@ namespace br21.api.temporada
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                app.UseSwagger();
-
-                app.UseSwaggerUI(opt =>
-                {
-                    opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Temporada]");
-                    opt.RoutePrefix = "br21api/temporada/swagger";//string.Empty;
-                });
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "br21 V1 [Temporada]");
+                opt.RoutePrefix = "br21api/temporada/swagger";//string.Empty;
+            });
+
 
             app.UseHttpsRedirection();
 

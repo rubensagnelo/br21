@@ -139,9 +139,23 @@ namespace br21.api.time.Controllers
             return StatusCode(errcode, id);
         }
 
+
+        //[Route("br21api/ver")]
+        [HttpGet]
+        public virtual IActionResult ver()
+        {
+            var result = string.Empty;
+            int errcode = 500;
+            result = _config.GetSection("Aplicacao").GetValue<String>("versao").ToString();
+            errcode = 200;
+            return StatusCode(errcode, result);
+        }
+
+        private IConfiguration _config;
         private String _urlTime = "";
         public JogoController(IConfiguration config)
         {
+            _config = config;
             _urlTime = config.GetSection("Aplicacao").GetSection("Parametros").GetValue<String>("urlserviceTime").ToString();
         }
 
