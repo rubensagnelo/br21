@@ -158,7 +158,7 @@ namespace br21.core.negocio.temporada
         public static int Update(long? IDTemporada, entTemporada item)
         {
 
-            int result = 204;// 204 - Temporada atualizada com sucesso
+            int result = 202;// 202 - Temporada atualizada com sucesso
 
             try
             {
@@ -189,7 +189,7 @@ namespace br21.core.negocio.temporada
                 //updates.Add(update.Set("imgescudo", obj.imgescudo));
 
                 cr.UpdateOne(Filtro, update.Combine(updates));
-                result = 204;// 204 - temporada alterada com sucesso
+                result = 202;// 202 - temporada alterada com sucesso
 
 
             }

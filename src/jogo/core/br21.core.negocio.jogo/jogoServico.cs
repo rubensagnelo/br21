@@ -232,7 +232,7 @@ namespace br21.core.negocio.jogo
         public static int Update(long? IDJogo, entJogo item)
         {
 
-            int result = 204;// 204 - Jogo atualizado com sucesso
+            int result = 202;// 202 - Jogo atualizado com sucesso
 
             try
             {
@@ -283,7 +283,7 @@ namespace br21.core.negocio.jogo
 
 
                 cr.UpdateOne(Filtro, update.Combine(updates));
-                result = 204;// 204 - jogo atualizado com sucesso
+                result = 202;// 202 - jogo atualizado com sucesso
 
 
             }

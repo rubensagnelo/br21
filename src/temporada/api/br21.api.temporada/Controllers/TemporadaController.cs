@@ -68,7 +68,7 @@ namespace br21.api.temporada.Controllers
         /// <param name="id">Identificador da Temporada</param>
         /// <param name="value">Dados a serem alterados de uma Temporada de Identificador especificado no parâmetro [id]</param>
         /// <returns>Resultado da operação</returns>
-        // <response code="204">Temporada atualizada com sucesso</response>
+        // <response code="202">Temporada atualizada com sucesso</response>
         // <response code="400">Parametro ou estrutura de entrada inálida</response>
         // <response code="404">Temporada nao encontrada</response>
         [HttpPut("{id}")]
