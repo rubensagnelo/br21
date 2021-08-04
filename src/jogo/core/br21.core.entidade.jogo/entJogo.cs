@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace br21.core.entidade.jogo
 {
@@ -32,9 +33,11 @@ namespace br21.core.entidade.jogo
 
         private void ehDataValida(string atributo, string valor)
         {
+
             try
             {
-                Convert.ToDateTime(valor);
+                DateTimeFormatInfo ukDtfi = new CultureInfo("pt-BR", false).DateTimeFormat;
+                Convert.ToDateTime(valor, ukDtfi);
             }
             catch (Exception)
             {
