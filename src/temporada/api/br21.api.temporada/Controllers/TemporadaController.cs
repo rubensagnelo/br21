@@ -68,9 +68,9 @@ namespace br21.api.temporada.Controllers
         /// <param name="id">Identificador da Temporada</param>
         /// <param name="value">Dados a serem alterados de uma Temporada de Identificador especificado no parâmetro [id]</param>
         /// <returns>Resultado da operação</returns>
-        // <response code="202">Temporada atualizada com sucesso</response>
-        // <response code="400">Parametro ou estrutura de entrada inálida</response>
-        // <response code="404">Temporada nao encontrada</response>
+        /// <response code="202">Temporada atualizada com sucesso</response>
+        /// <response code="400">Parametro ou estrutura de entrada inálida</response>
+        /// <response code="404">Temporada nao encontrada</response>
         [HttpPut("{id}")]
         public virtual IActionResult Put([FromRoute]int id, [FromBody] mdlEntradaTemporada value)
         {
@@ -84,9 +84,9 @@ namespace br21.api.temporada.Controllers
         /// </summary>
         /// <param name="id">Identificador da Temporada a ser excluido</param>
         /// <returns>Resultado da operação</returns>
-        // <response code="202">Temporada excluida com sucesso</response>
-        // <response code="400">Id da Temporada inválida</response>
-        // <response code="404">Temporada nao encontrada</response>   
+        /// <response code="202">Temporada excluida com sucesso</response>
+        /// <response code="400">Id da Temporada inválida</response>
+        /// <response code="404">Temporada nao encontrada</response>   
         [HttpDelete("{id}")]
         public virtual IActionResult Delete(int id)
         {

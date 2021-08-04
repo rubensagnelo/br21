@@ -38,6 +38,9 @@
             <param name="id">Identificador da Temporada</param>
             <param name="value">Dados a serem alterados de uma Temporada de Identificador especificado no parâmetro [id]</param>
             <returns>Resultado da operação</returns>
+            <response code="202">Temporada atualizada com sucesso</response>
+            <response code="400">Parametro ou estrutura de entrada inálida</response>
+            <response code="404">Temporada nao encontrada</response>
         </member>
         <member name="M:br21.api.temporada.Controllers.TemporadaController.Delete(System.Int32)">
             <summary>
@@ -45,6 +48,9 @@
             </summary>
             <param name="id">Identificador da Temporada a ser excluido</param>
             <returns>Resultado da operação</returns>
+            <response code="202">Temporada excluida com sucesso</response>
+            <response code="400">Id da Temporada inválida</response>
+            <response code="404">Temporada nao encontrada</response>   
         </member>
     </members>
 </doc>

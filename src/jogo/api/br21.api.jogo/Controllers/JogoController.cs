@@ -113,9 +113,9 @@ namespace br21.api.time.Controllers
         /// <param name="id">Identificador do Jogo</param>
         /// <param name="value">Dados a serem alterados de um jogo de Identificador especificado no parâmetro [id]</param>
         /// <returns>Resultado da operação</returns>
-        // <response code="202">Jogo atualizado com sucesso</response>
-        // <response code="400">Parametro ou estrutura de entrada inálida</response>
-        // <response code="404">jogo nao encontrado</response>
+        /// <response code="202">Jogo atualizado com sucesso</response>
+        /// <response code="400">Parametro ou estrutura de entrada inálida</response>
+        /// <response code="404">jogo nao encontrado</response>
         [HttpPut("{id}")]
         public virtual IActionResult Put([FromRoute] int id, [FromBody] mdlEntradaJogo value)
         {
@@ -128,9 +128,9 @@ namespace br21.api.time.Controllers
         /// </summary>
         /// <param name="id">Identificador do jogo a ser excluido</param>
         /// <returns>Resultado da operação</returns>
-        // <response code="202">Jogo excluido com sucesso</response>
-        // <response code="400">Id do jogo invalido</response>
-        // <response code="404">Jogo nao encontrado</response>        
+        /// <response code="202">Jogo excluido com sucesso</response>
+        /// <response code="400">Id do jogo invalido</response>
+        /// <response code="404">Jogo nao encontrado</response>        
         [HttpDelete("{id}")]
         public virtual IActionResult Delete(int id)
         {
