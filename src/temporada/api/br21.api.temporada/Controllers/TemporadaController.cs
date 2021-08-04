@@ -19,7 +19,7 @@ namespace br21.api.temporada.Controllers
         /// Recupera a lista de todas as temporadas  
         /// </summary>
         /// <returns>Resultado da operação</returns>
-        /// <response code="200">Sucesso na recuperação dos Jogos</response>
+        /// <response code="200">Sucesso na recuperação dos temporadas</response>
         /// <response code="400">valor do parametro inválido</response>
         [HttpGet]
         public virtual IActionResult Get()
@@ -51,9 +51,9 @@ namespace br21.api.temporada.Controllers
         /// </summary>
         /// <param name="value">Temporada a ser incluido (vide estrutura mdlEntradaTemporada)</param>
         /// <returns>Resultado da operação</returns>
-        /// <response code="201">jogo incluido com sucesso</response>
+        /// <response code="201">Temporada incluida com sucesso</response>
         /// <response code="400">parametro ou estrutura de entrada inálida</response>
-        /// <response code="409">jogo já existente</response>
+        /// <response code="409">Temporada já existente</response>
         [HttpPost]
         public virtual IActionResult Post([FromBody] mdlEntradaTemporada value)
         {
