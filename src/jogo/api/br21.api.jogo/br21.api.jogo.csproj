@@ -9,7 +9,7 @@
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup>
     <DocumentationFile>C:\pos\Projeto Integrado\br21\fontes\br21\src\jogo\api\br21.api.jogo\br21.api.jogo.xml</DocumentationFile>
   </PropertyGroup>
 

@@ -7,7 +7,7 @@
     <DockerfileContext>..\..\..\..</DockerfileContext>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup>
     <DocumentationFile>C:\pos\Projeto Integrado\br21\fontes\br21\src\temporada\api\br21.api.temporada\br21.api.temporada.xml</DocumentationFile>
   </PropertyGroup>
 
