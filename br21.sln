@@ -29,17 +29,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{35889592-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{F7F7BA14-ACC7-4A99-B3F3-B67CB593DC12}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.api.jogo", "src\jogo\api\br21.api.jogo\br21.api.jogo.csproj", "{A6538609-114C-4F02-93AB-72465CEB9F85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.api.jogo", "src\jogo\api\br21.api.jogo\br21.api.jogo.csproj", "{A6538609-114C-4F02-93AB-72465CEB9F85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.api.temporada", "src\temporada\api\br21.api.temporada\br21.api.temporada.csproj", "{4E2EFA79-F975-4DA3-B945-42BA7687A0D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.api.temporada", "src\temporada\api\br21.api.temporada\br21.api.temporada.csproj", "{4E2EFA79-F975-4DA3-B945-42BA7687A0D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.api.time", "src\time\api\br21.api.time\br21.api.time.csproj", "{3C8DEB83-FAC3-4C8D-A1DF-F0AB26202577}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.api.time", "src\time\api\br21.api.time\br21.api.time.csproj", "{3C8DEB83-FAC3-4C8D-A1DF-F0AB26202577}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.negocio.jogo", "src\jogo\core\br21.core.negocio.jogo\br21.core.negocio.jogo.csproj", "{D7304212-5595-4330-A6A1-7F6B97564BCF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.negocio.temporada", "src\temporada\core\br21.core.negocio.temporada\br21.core.negocio.temporada.csproj", "{7F81837C-4B34-4859-9580-3B379C92BFED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.negocio.time", "src\time\core\br21.core.negocio.time\br21.core.negocio.time.csproj", "{9C84512A-58B8-4506-AE6D-27C593CE4B26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.core.negocio.time", "src\time\core\br21.core.negocio.time\br21.core.negocio.time.csproj", "{9C84512A-58B8-4506-AE6D-27C593CE4B26}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.infra.data.jogo", "src\jogo\infra\br21.infra.data.jogo\br21.infra.data.jogo.csproj", "{67A4C35E-12D0-46ED-B128-9BDC68A66BFB}"
 EndProject
@@ -66,6 +66,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.base.modelo", "src\_base\br21.base.modelo\br21.base.modelo.csproj", "{0177D77D-9CC1-4A80-9940-13F9AD59AF87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.base.utils", "src\_base\br21.base.utils\br21.base.utils.csproj", "{8D90FFF1-126C-4B98-9376-4FD0DB86FFF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "teste", "teste", "{06DE6BE9-8826-47C0-AE2C-0FFC1DA056B4}"
+	ProjectSection(SolutionItems) = preProject
+		testeclientvanila_asinc.html = testeclientvanila_asinc.html
+		testeclientvanila.html = testeclientvanila.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

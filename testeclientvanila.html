@@ -1,0 +1,24 @@
+﻿
+<!DOCTYPE html >
+<html >
+<head >
+<meta charset="utf-8" / >
+<title > </title >
+</head >
+<body >
+
+</body >
+</html >
+
+<script >
+
+function execapi(url) {
+    fetch(uri) .then(response => response.json()) .then(data => _displayItems(data)) .catch(error => console.error('Unable to get items.', error));
+}
+
+var data;
+execapi("GET", "http://18.205.226.58:81/br21api/jogo", data);
+console.log(data);
+
+
+</script >
