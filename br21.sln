@@ -65,7 +65,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.core.modelo.jogo", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.base.modelo", "src\_base\br21.base.modelo\br21.base.modelo.csproj", "{0177D77D-9CC1-4A80-9940-13F9AD59AF87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br21.base.utils", "src\_base\br21.base.utils\br21.base.utils.csproj", "{8D90FFF1-126C-4B98-9376-4FD0DB86FFF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br21.base.utils", "src\_base\br21.base.utils\br21.base.utils.csproj", "{8D90FFF1-126C-4B98-9376-4FD0DB86FFF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teste", "Teste", "{5A1AED3C-4528-4A37-85E1-8CC8383C11DF}"
+	ProjectSection(SolutionItems) = preProject
+		execjsvanilla.html = execjsvanilla.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
