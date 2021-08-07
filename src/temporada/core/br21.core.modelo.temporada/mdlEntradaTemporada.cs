@@ -2,13 +2,15 @@
 using br21.core.entidade.temporada;
 using System.Collections.Generic;
 using br21.modelobase;
+using System.ComponentModel.DataAnnotations;
 
 namespace br21.core.modelo.temporada
 {
     public class mdlEntradaTemporada
     {
-        public int idtemporada { get; set; }
 
+        [Required(ErrorMessage = "Identificador da temporada é obrigatória.")]
+        public int idtemporada { get; set; }
 
         public mdlEntradaTemporada()
         {

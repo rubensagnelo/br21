@@ -2,15 +2,19 @@
 using br21.modelobase;
 using br21.core.entidade.time;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace br21.core.modelo.time
 {
     public class mdlEntradaTime : mdlEntradabase
     {
-        
+        [Required(ErrorMessage = "Identificador do time é obrigatório.")]
         public string idttime { get; set; }
+
+        [Required(ErrorMessage = "A sigla do time é obrigatória.")]
         public string sgltime { get; set; }
+        
+        [Required(ErrorMessage = "A descrição do time é obrigatório.")]
         public string dsctime { get; set; }
         //public byte[] imgescudo { get; set; }
 

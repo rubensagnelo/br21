@@ -2,24 +2,30 @@
 using br21.modelobase;
 using br21.core.entidade.jogo;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace br21.core.modelo.jogo
 {
     public class mdlEntradaJogo : mdlEntradabase
     {
+        [Required(ErrorMessage = "Identificador do jogo é obrigatório.")]
         public long idjogo { get; set; } //identificador do jogo
+
+        [Required(ErrorMessage = "Identificador da temporada é obrigatória.")]
         public int idttemporada { get; set; }//identificador da temporada(exemplo: 2021)
+        [Required(ErrorMessage = "A Rodada é obrigatória.")]
         public int rodada { get; set; } //Numero da rodada
+
+        [Required(ErrorMessage = "Data e Hora do jogo são obrigatórios.")]
         public string dtajogo { get; set; }  //Data e hora inicio jogo
 
-
+        [Required(ErrorMessage = "O identificador do time mandante é obrigatório.")]
         public string idttimemandante { get; set; } //Identificador do time visitante
         public int vlrplacarmandante { get; set; } //placar do mandante
 
+        [Required(ErrorMessage = "O identificador do time visitante é obrigatório.")]
         public string idttimevisitante { get; set; } //Identificador do time visitante
         public int vlrplacarvisitante { get; set; } //placar do visitante
-
 
         public mdlEntradaJogo()
         {
