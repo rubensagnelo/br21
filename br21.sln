@@ -70,7 +70,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "teste", "teste", "{06DE6BE9-8826-47C0-AE2C-0FFC1DA056B4}"
 	ProjectSection(SolutionItems) = preProject
 		testeclientvanila.html = testeclientvanila.html
-		testeclientvanila_asinc.html = testeclientvanila_asinc.html
 	EndProjectSection
 EndProject
 Global
