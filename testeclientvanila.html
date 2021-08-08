@@ -5,20 +5,82 @@
 <meta charset="utf-8" / >
 <title > </title >
 </head >
-<body >
-
-</body >
+<body>
+    <span id="spanresult" name="spanresult">Some text</span>
+</body>
 </html >
 
 <script >
 
-function execapi(url) {
-    fetch(uri) .then(response => response.json()) .then(data => _displayItems(data)) .catch(error => console.error('Unable to get items.', error));
-}
+    
 
-var data;
-execapi("GET", "http://18.205.226.58:81/br21api/jogo", data);
-console.log(data);
 
+    function addItem(item) {
+
+        
+        //const item = {
+        //    isComplete: false,
+        //    name: addNameTextbox.value.trim()
+        //};
+
+        fetch(uri, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        })
+            .then(response => response.json())
+            .then(() => {
+                getItems();
+            })
+            .catch(error => console.error('Unable to add item.', error));
+    }
+
+    function deleteItem(id) {
+        fetch(`${uri}/${id}`, {
+            method: 'DELETE'
+        })
+            .then(() => getItems())
+            .catch(error => console.error('Unable to delete item.', error));
+    }
+
+    var rsp;
+    var err;
+    var dt;
+
+    async function getItems(url) {
+       
+        //Exemplo: const url = 'api/TodoItems';
+         const response = await fetch(url)
+            .then(response => rsp = response.json())
+            .then(data => dt = data)
+            .catch(error => err = error);
+
+        console.log('>> Endpoint: ');
+        console.log(url);
+
+        console.log('>> Response: ');
+        console.log(response);
+
+        console.log('>> Erro: ');
+        console.log(err);
+
+        console.log('>> Data: ');
+        console.log(JSON.stringify(dt));
+        
+        console.log( '========================================================================');
+
+        return await response;
+    }
+
+    var result;
+    //18.205.226.58:82
+    result = getItems('http://ec2-18-205-226-58.compute-1.amazonaws.com:80/br21api/time');
+    result = getItems('http://ec2-18-205-226-58.compute-1.amazonaws.com:82/br21api/temporada');
+    result = getItems('http://ec2-18-205-226-58.compute-1.amazonaws.com:81/br21api/jogo');
+
+    //document.getElementById('spanresult').innerText = lg;
 
 </script >

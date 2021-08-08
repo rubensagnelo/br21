@@ -276,7 +276,7 @@ namespace br21.core.negocio.jogo
                 updates.Add(update.Set("idttimemandante", obj.idttimemandante));
                 //updates.Add(update.Set("dsctimemandante", obj.dsctimemandante));
                 updates.Add(update.Set("vlrplacarmandante", obj.vlrplacarmandante));
-                updates.Add(update.Set("idttimevitante", obj.idttimevisitante));
+                updates.Add(update.Set("idttimevisitante", obj.idttimevisitante));
                 //updates.Add(update.Set("dsctimevisitante", obj.dsctimevisitante));
                 updates.Add(update.Set("vlrplacarvisitante", obj.vlrplacarvisitante));
 
